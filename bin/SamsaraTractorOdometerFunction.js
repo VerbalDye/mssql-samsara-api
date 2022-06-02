@@ -5,6 +5,12 @@ const SamsaraTractorOdometerFunction = function (sdk) {
     sdk.getVehicleStats({ time: getDates(0, 'rfc-time'), types: 'gpsOdometerMeters,obdOdometerMeters'})
         .then(res => {
             res.data.forEach(tractor => {
+                if(!tractor.obdOdometerMeters) {
+                    tractor.obdOdometerMeters = { value: null, time: null };
+                }
+                if(!tractor.gpsOdometerMeters) {
+                    tractor.gpsOdometerMeters = { value: null, time: null };
+                }
                 SamsaraTractorOdometer.create({
                     name: tractor.name,
                     obdOdometerMeters: tractor.obdOdometerMeters.value,
