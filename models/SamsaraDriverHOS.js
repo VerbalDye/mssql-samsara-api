@@ -16,8 +16,7 @@ SamsaraDriverEfficiency.init(
             allowNull: false
         },
         username: {
-            type: DataTypes.STRING,
-            allowNull: false
+            type: DataTypes.STRING
         },
         driveDistanceMeters: {
             type: DataTypes.INTEGER
