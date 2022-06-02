@@ -2,7 +2,7 @@ const { SamsaraDriverHOS } = require('../models');
 const getDates = require('./utils/getDates');
 
 const SamsaraDriverHOSFunction = function (sdk) {
-    sdk.getHosDailyLogs(getDates(3, 'rfc'))
+    sdk.getHosDailyLogs(getDates(3, 'rfc-date'))
         .then(res => {
             res.data.forEach(driver => {
                 SamsaraDriverHOS.create({
