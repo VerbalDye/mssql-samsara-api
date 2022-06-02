@@ -8,7 +8,7 @@ const SamsaraDriverHOSFunction = async function (sdk, endCursor) {
         if (endCursor) {
             options.endCursor = endCursor;
         }
-
+        console.log(options.endCursor);
         const res = await sdk.getHosDailyLogs(options);
 
         res.data.forEach(driver => {
