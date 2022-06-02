@@ -30,8 +30,8 @@ const SamsaraDriverHOSFunction = async function (sdk, endCursor) {
             })
         })
 
-        if (res.data.pagiation.hasNextPage) {
-            SamsaraDriverHOSFunction(sdk, res.data.pagiation.endCursor);
+        if (res.pagiation.hasNextPage) {
+            SamsaraDriverHOSFunction(sdk, res.pagiation.endCursor);
         }
 
     } catch (err) {
