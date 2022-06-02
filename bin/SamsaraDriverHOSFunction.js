@@ -4,6 +4,7 @@ const getDates = require('./utils/getDates');
 const SamsaraDriverHOSFunction = async function (sdk, endCursor) {
     try {
         let options = { startDate: getDates(4, 'rfc-date'), endDate: getDates(3, 'rfc-date') };
+        console.log(endCursor);
         if (endCursor) {
             options.endCursor = endCursor;
         }
@@ -29,7 +30,7 @@ const SamsaraDriverHOSFunction = async function (sdk, endCursor) {
                 console.log(dbDriverData.name + ' Completed!')
             })
         })
-        console.log(res.pagination.hasNextPage);
+        
         if (res.pagination.hasNextPage) {
             SamsaraDriverHOSFunction(sdk, res.pagination.endCursor);
         }
