@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class SamsaraDriverEfficiency extends Model { };
+class SamsaraDriverHOS extends Model { };
 
-SamsaraDriverEfficiency.init(
+SamsaraDriverHOS.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -63,4 +63,4 @@ SamsaraDriverEfficiency.init(
     }
 )
 
-module.exports = SamsaraDriverEfficiency;
+module.exports = SamsaraDriverHOS;
