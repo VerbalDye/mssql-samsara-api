@@ -1,4 +1,4 @@
-const efficiencyApiCall = require('./SamsaraDriverEfficiencyFunction');
+const SamsaraDriverEfficiencyFunction = require('./SamsaraDriverEfficiencyFunction');
 
 
-module.exports = { efficiencyApiCall };
+module.exports = { SamsaraDriverEfficiencyFunction };
