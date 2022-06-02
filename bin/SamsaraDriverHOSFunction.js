@@ -3,12 +3,12 @@ const getDates = require('./utils/getDates');
 
 const SamsaraDriverHOSFunction = async function (sdk, endCursor) {
     try {
-        let options = { startDate: getDates(4, 'rfc-date'), endDate: getDates(3, 'rfc-date') };
-        console.log(endCursor);
+        let options = { startDate: getDates(3, 'rfc-date'), endDate: getDates(3, 'rfc-date') };
+
         if (endCursor) {
             options.after = endCursor;
         }
-        console.log(options.endCursor);
+
         const res = await sdk.getHosDailyLogs(options);
 
         res.data.forEach(driver => {
@@ -28,7 +28,6 @@ const SamsaraDriverHOSFunction = async function (sdk, endCursor) {
                 end_time: driver.endTime
             }).then(dbDriverData => {
                 console.log(dbDriverData.name + ' Completed!');
-                console.log(res.pagination.hasNextPage);
             })
         })
         
