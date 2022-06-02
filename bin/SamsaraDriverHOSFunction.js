@@ -29,9 +29,9 @@ const SamsaraDriverHOSFunction = async function (sdk, endCursor) {
                 console.log(dbDriverData.name + ' Completed!')
             })
         })
-        console.log(res.pagiation.hasNextPage);
-        if (res.pagiation.hasNextPage) {
-            SamsaraDriverHOSFunction(sdk, res.pagiation.endCursor);
+        console.log(res.pagination.hasNextPage);
+        if (res.pagination.hasNextPage) {
+            SamsaraDriverHOSFunction(sdk, res.pagination.endCursor);
         }
 
     } catch (err) {
