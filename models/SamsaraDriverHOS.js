@@ -60,7 +60,7 @@ SamsaraDriverEfficiency.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'samsaraDriverEfficiency'
+        modelName: 'samsaraDriverHOS'
     }
 )
 
