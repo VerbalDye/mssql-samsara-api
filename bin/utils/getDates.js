@@ -7,7 +7,7 @@ const getDates = function (dayOffset, format) {
         return { startTime: start_time.format('YYYY-MM-DDTHH:mm:ss[Z]'), endTime: end_time.format('YYYY-MM-DDTHH:mm:ss[Z]') };
     } else if(format === 'rfc') {
         console.log({ startTime: start_time.format('YYYY-MM-DD'), endTime: end_time.format('YYYY-MM-DD') });
-        return { startTime: start_time.format('YYYY-MM-DD'), endTime: end_time.format('YYYY-MM-DD') };
+        return { startTime: start_time.format('YYYY-MM-DD'), endTime: end_time.format('YYYY-MM-DD'), driverActivationStatus: 'active' };
     } else {
         throw new Error('Invalid Date Format');
     }
