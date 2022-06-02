@@ -11,7 +11,7 @@ const SamsaraDriverHOSFunction = async function (sdk, endCursor) {
         const res = await sdk.getHosDailyLogs(options);
 
         res.data.forEach(driver => {
-            const dbDriverData = await SamsaraDriverHOS.create({
+            SamsaraDriverHOS.create({
                 name: driver.driver.name,
                 username: driver.driver.externalIds.TmwId,
                 driveDistanceMeters: driver.distanceTraveled.driveDistanceMeters,
@@ -25,8 +25,9 @@ const SamsaraDriverHOSFunction = async function (sdk, endCursor) {
                 waitingTimeDurationMs: driver.dutyStatusDurations.waitingTimeDurationMs,
                 start_time: driver.startTime,
                 end_time: driver.endTime
+            }).then(dbDriverData => {
+                console.log(dbDriverData.name + ' Completed!')
             })
-            console.log(dbDriverData.name + ' Completed!')
         })
 
         if (res.data.pagiation.hasNextPage) {
