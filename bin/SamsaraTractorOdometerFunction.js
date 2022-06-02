@@ -2,7 +2,7 @@ const { SamsaraTractorOdometer } = require('../models');
 const getDates = require('./utils/getDates');
 
 const SamsaraTractorOdometerFunction = function (sdk) {
-    sdk.getVehicleStats({ time: getDates(0, 'rfc-time') })
+    sdk.getVehicleStats({ time: getDates(0, 'rfc-time'), types: 'gpsOdometerMeters,obdOdometerMeters'})
         .then(res => {
             res.data.forEach(tractor => {
                 SamsaraTractorOdometer.create({
