@@ -6,7 +6,7 @@ const SamsaraDriverHOSFunction = async function (sdk, endCursor) {
         let options = { startDate: getDates(4, 'rfc-date'), endDate: getDates(3, 'rfc-date') };
         console.log(endCursor);
         if (endCursor) {
-            options.endCursor = endCursor;
+            options.after = endCursor;
         }
         console.log(options.endCursor);
         const res = await sdk.getHosDailyLogs(options);
