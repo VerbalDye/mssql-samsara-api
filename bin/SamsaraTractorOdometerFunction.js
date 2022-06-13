@@ -1,8 +1,8 @@
 const { SamsaraTractorOdometer } = require('../models');
 const getDates = require('./utils/getDates');
 
-const SamsaraTractorOdometerFunction = function (sdk) {
-    sdk.getVehicleStats({ time: getDates(0, 'rfc-time'), types: 'gpsOdometerMeters,obdOdometerMeters'})
+const SamsaraTractorOdometerFunction = function (sdk, x) {
+    sdk.getVehicleStats({ time: getDates(x, 'rfc-time'), types: 'gpsOdometerMeters,obdOdometerMeters'})
         .then(res => {
             res.data.forEach(tractor => {
                 if(!tractor.obdOdometerMeters) {
@@ -17,7 +17,7 @@ const SamsaraTractorOdometerFunction = function (sdk) {
                     gpsOdometerMeters: tractor.gpsOdometerMeters.value,
                     obdOdometerMetersTime: tractor.obdOdometerMeters.time,
                     gpsOdometerMetersTime: tractor.gpsOdometerMeters.time,
-                    search_time: getDates(0, 'rfc-time')
+                    search_time: getDates(x, 'rfc-time')
                 }).then(dbDriverData => console.log(dbDriverData.name + ' completed!'))
                     .catch(err => console.log(err));
             })

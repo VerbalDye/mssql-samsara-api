@@ -1,9 +1,10 @@
 const { SamsaraDriverEfficiency } = require('../models');
 const getDates = require('./utils/getDates');
 
-const SamsaraDriverEfficiencyFunction = function (sdk) {
-    sdk.getDriverEfficiency({ startTime: getDates(1, 'rfc-time'), endTime: getDates(0, 'rfc-time') })
+const SamsaraDriverEfficiencyFunction = function (sdk, x) {
+    sdk.getDriverEfficiency({ startTime: getDates(1 + x, 'rfc-time'), endTime: getDates(x, 'rfc-time') })
         .then(res => {
+            console.log(res);
             res.data.driverSummaries.forEach(summary => {
                 SamsaraDriverEfficiency.create({
                     name: summary.driver.name,

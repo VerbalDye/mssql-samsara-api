@@ -1,9 +1,9 @@
 const { SamsaraDriverHOS } = require('../models');
 const getDates = require('./utils/getDates');
 
-const SamsaraDriverHOSFunction = async function (sdk, endCursor) {
+const SamsaraDriverHOSFunction = async function (sdk, endCursor, x) {
     try {
-        let options = { startDate: getDates(3, 'rfc-date'), endDate: getDates(3, 'rfc-date') };
+        let options = { startDate: getDates(x, 'rfc-date'), endDate: getDates(x, 'rfc-date') };
 
         if (endCursor) {
             options.after = endCursor;
