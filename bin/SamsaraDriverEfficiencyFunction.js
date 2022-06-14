@@ -16,6 +16,7 @@ const SamsaraDriverEfficiencyFunction = function (sdk, x) {
                     totalFuelConsumedMl: summary.totalFuelConsumedMl,
                     greenBandDrivingDurationMs: summary.greenBandDrivingDurationMs,
                     coastingDurationMs: summary.coastingDurationMs,
+                    cruiseControlDurationMs: summary.coastingDurationMs,
                     anticipationBrakeEventCount: summary.anticipationBrakeEventCount,
                     totalBrakeEventCount: summary.totalBrakeEventCount,
                     start_time: res.data.summaryStartTime,

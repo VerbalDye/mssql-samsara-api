@@ -40,6 +40,9 @@ SamsaraDriverEfficiency.init(
         coastingDurationMs: {
             type: DataTypes.INTEGER
         },
+        cruiseControlDurationMs: {
+            type: DataTypes.INTEGER
+        },
         anticipationBrakeEventCount: {
             type: DataTypes.INTEGER
         },
