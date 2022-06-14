@@ -3,7 +3,7 @@ const getDates = require('./utils/getDates');
 
 const SamsaraDriverHOSFunction = async function (sdk, endCursor, x) {
     try {
-        let options = { startDate: getDates(x, 'rfc-date'), endDate: getDates(x, 'rfc-date') };
+        let options = { startDate: getDates(x + 3, 'rfc-date'), endDate: getDates(x + 3, 'rfc-date') };
 
         if (endCursor) {
             options.after = endCursor;
