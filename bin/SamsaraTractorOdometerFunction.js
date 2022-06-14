@@ -1,7 +1,7 @@
 const { SamsaraTractorOdometer } = require('../models');
 const getDates = require('./utils/getDates');
 
-const SamsaraTractorOdometerFunction = function (sdk, x) {
+const SamsaraTractorOdometerFunction = async function (sdk, x) {
     sdk.getVehicleStats({ time: getDates(x, 'rfc-time'), types: 'gpsOdometerMeters,obdOdometerMeters'})
         .then(res => {
             res.data.forEach(tractor => {

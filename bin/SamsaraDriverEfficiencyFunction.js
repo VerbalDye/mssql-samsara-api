@@ -1,7 +1,7 @@
 const { SamsaraDriverEfficiency } = require('../models');
 const getDates = require('./utils/getDates');
 
-const SamsaraDriverEfficiencyFunction = function (sdk, x) {
+const SamsaraDriverEfficiencyFunction = async function (sdk, x) {
     sdk.getDriverEfficiency({ startTime: getDates(1 + x, 'rfc-time'), endTime: getDates(x, 'rfc-time') })
         .then(res => {
             console.log(res);

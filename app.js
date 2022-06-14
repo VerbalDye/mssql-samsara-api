@@ -7,10 +7,8 @@ sdk.auth(process.env.SAMSARA_AUTH);
 
 sequelize.sync({ force: false }).then(async () => {
     for (let x = 13; x < 469; x++) {
-        await Promise.all(
-            SamsaraDriverEfficiencyFunction(sdk, x),
-            SamsaraDriverHOSFunction(sdk, null, x),
-            SamsaraTractorOdometerFunction(sdk, x)
-        )
+        await SamsaraDriverEfficiencyFunction(sdk, x),
+        await SamsaraDriverHOSFunction(sdk, null, x),
+        await SamsaraTractorOdometerFunction(sdk, x)
     }
 });
